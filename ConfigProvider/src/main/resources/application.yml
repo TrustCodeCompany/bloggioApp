@@ -1,0 +1,23 @@
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          #VARIABLES FOR LOCAL ENV AND AWS COMPILATION ENV
+          #default-label: develop
+          #password: ATBBuHjwGXPDqC4zWmWePmsF9jJy64B1A5F5
+          #username: sdelsalto
+          #ignore-local-ssh-settings: 'true'
+          #uri: https://bitbucket.org/outsidetheboxsa/mundos-general-config-develop
+
+          #ENV VARIABLES
+          default-label: ${GIT_BRANCH:develop}
+          password: ${GIT_PASSWORD:ATBBuHjwGXPDqC4zWmWePmsF9jJy64B1A5F5}
+          username: ${GIT_USERNAME:sdelsalto}
+          ignore-local-ssh-settings: 'true'
+          uri: ${GIT_URI:https://bitbucket.org/outsidetheboxsa/mundos-general-config-develop}
+      enabled: 'true'
+  application:
+    name: configserver
+server:
+  port: '8888'

@@ -1,0 +1,90 @@
+server:
+  port: 8083
+  error:
+    include-message: always
+    include-binding-errors: always
+    include-stacktrace: on_trace_param
+    include-exception: false
+
+jwt:
+  expirationDateInMs: '78000000'
+  secret: '@@@S3CR4To$%'
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bloggio
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  config:
+    import: optional:configserver:http://localhost:8888/
+  application:
+    name: bloggio
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+
+messages:
+  codenotfound: "-1"
+  messagenotfoud: "No se encontro informaci�n para mostrar"
+  codeok: "0"
+  messageok: "Operacion ejecutada con exito"
+  codduplicateversion: "-2"
+  messageduplicaversion: "Ya existe una version con esa infomaci�n"
+  codduplicatestate: "-3"
+  messageduplicatestate: "No es posible tener dos versiones habilitadas"
+  codnotexistuserterm: "-999"
+  messagenotexistuserterm: "No existen registros para modificar"
+  codbadaceptedtermcondition: "-4"
+  messagebadtermcondition: "No se puede aceptar dos veces la misma version de temrinos y condiciones"
+  messagecodeexistpublishitem: "-5"
+  messageexistpublishitem: "Existen terminos&condiciones ó piliticas que se ecuentran publicadas"
+  healthapp: "1"
+  isactiveintegration: "1"
+  messagecodeexistcontent: "-6"
+  messageexistcontent: "Ya existe un documento con este contenido"
+
+general:
+  config:
+    apiKeyHeader: 8fc1ba3e-6b01-42c2-aef3-b025817120a3
+    constans:
+      id: "mundosAPIJWT"
+      authorities: "authorities"
+      BEARER: "Bearer "
+      AUTHORIZATION: "Authorization"
+      headersJWTPartnerLoginID: "identificationNumber"
+      headersJWTPartnerLoginDevice: "identificationDevice"
+      headersJWTPartnerLoginType: "identificationType"
+      SUCCESS: "success"
+      OK: 0
+      ERROR: 500
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql: TRACE
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 160000000
+        readTimeout: 160000000

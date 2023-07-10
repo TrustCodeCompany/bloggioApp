@@ -1,0 +1,38 @@
+
+messages:
+  codenotfound: "-1"
+  messagenotfoud: "No se encontro informaci�n para mostrar"
+  codeok: "0"
+  messageok: "Operacion ejecutada con exito"
+  codduplicateversion: "-2"
+  messageduplicaversion: "Ya existe una version con esa infomaci�n"
+  codduplicatestate: "-3"
+  messageduplicatestate: "No es posible tener dos versiones habilitadas"
+  codnotexistuserterm: "-999"
+  messagenotexistuserterm: "No existen registros para modificar"
+  codbadaceptedtermcondition: "-4"
+  messagebadtermcondition: "No se puede aceptar dos veces la misma version de temrinos y condiciones"
+  messagecodeexistpublishitem: "-5"
+  messageexistpublishitem: "Existen terminos&condiciones ó piliticas que se ecuentran publicadas"
+  healthapp: "1"
+  isactiveintegration: "1"
+  messagecodeexistcontent: "-6"
+  messageexistcontent: "Ya existe un documento con este contenido"
+
+jwt:
+  expirationDateInMs: '78000000'
+  secret: '@@@S3CR4To$%'
+
+general:
+  config:
+    apiKeyHeader: 8fc1ba3e-6b01-42c2-aef3-b025817120a3
+    constans:
+      id: "bloggioAPIJWT"
+      authorities: "authorities"
+      BEARER: "Bearer "
+      AUTHORIZATION: "Authorization"
+      headersJWTPartnerLoginID: "identificationNumber"
+      headersJWTPartnerLoginDevice: "identificationDevice"
+      headersJWTPartnerLoginType: "identificationType"
+
+
