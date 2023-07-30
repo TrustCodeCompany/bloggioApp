@@ -1,3 +1,46 @@
+server:
+  port: 8084
+  error:
+    include-message: always
+    include-binding-errors: always
+    include-stacktrace: on_trace_param
+    include-exception: false
+
+jwt:
+  expirationDateInMs: '78000000'
+  secret: '@@@S3CR4To$%'
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bloggio
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  config:
+    import: optional:configserver:http://localhost:8888/
+  application:
+    name: users
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
 
 messages:
   codenotfound: "-1"
@@ -19,10 +62,6 @@ messages:
   messagecodeexistcontent: "-6"
   messageexistcontent: "Ya existe un documento con este contenido"
 
-jwt:
-  expirationDateInMs: '78000000'
-  secret: '@@@S3CR4To$%'
-
 general:
   config:
     apiKeyHeader: 8fc1ba3e-6b01-42c2-aef3-b025817120a3
@@ -34,5 +73,18 @@ general:
       headersJWTPartnerLoginID: "identificationNumber"
       headersJWTPartnerLoginDevice: "identificationDevice"
       headersJWTPartnerLoginType: "identificationType"
+      SUCCESS: "success"
+      OK: 0
+      ERROR: 500
 
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql: TRACE
 
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 160000000
+        readTimeout: 160000000

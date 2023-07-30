@@ -18,6 +18,7 @@
         <module>ServiceDiscovery</module>
         <module>ZuulServer</module>
         <module>AuthProvider</module>
+        <module>users</module>
     </modules>
     <dependencies>
         <dependency>

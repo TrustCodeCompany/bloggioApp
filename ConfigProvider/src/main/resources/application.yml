@@ -12,10 +12,10 @@ spring:
 
           #ENV VARIABLES
           default-label: ${GIT_BRANCH:develop}
-          password: ${GIT_PASSWORD:ATBBuHjwGXPDqC4zWmWePmsF9jJy64B1A5F5}
-          username: ${GIT_USERNAME:sdelsalto}
+          password: ${GIT_PASSWORD:Rwillians1}
+          username: ${GIT_USERNAME:rricardob}
           ignore-local-ssh-settings: 'true'
-          uri: ${GIT_URI:https://bitbucket.org/outsidetheboxsa/mundos-general-config-develop}
+          uri: ${GIT_URI:https://github.com/TrustCodeCompany/bloggio-config-dev}
       enabled: 'true'
   application:
     name: configserver

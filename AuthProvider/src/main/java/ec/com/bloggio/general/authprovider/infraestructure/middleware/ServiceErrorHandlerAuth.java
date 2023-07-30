@@ -40,7 +40,6 @@ public class ServiceErrorHandlerAuth {
     public final ResponseEntity<Object> handleFilesDomainException(DomainException ex, WebRequest request) {
 
         var internalMessage = ex.getInternalMessage();
-        var i = 0;
 
         logger_.warn("Error.:", internalMessage != null && Boolean.FALSE.equals(internalMessage.isEmpty())
                 ? ex.getInternalMessage()
